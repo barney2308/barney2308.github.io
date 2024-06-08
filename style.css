@@ -1,106 +1,432 @@
+/* ##############  / 
+   GENERAL NOTES
+   1. box width: 100px
+   2. spacer 50px
+
+  
+   CLASSES
+   ------------------------------------------------------------------------------------------
+   | Ref   | Class Name                     | Description
+   ------------------------------------------------------------------------------------------
+   | 1.   | grid-master                     |
+   | 2.   | grid-gen#                       | new grid row for each generation. starts at 1.
+   | 3.   | item                            |
+   |      | item#                           |
+   |      | [first/last/mid/only]-offspring |
+   |      | [male/female/single]-offset     | 
+   | 4    | leaf                            | container for leaf or double-leaf
+   |      | [male/female]                   | 
+   | 4.1  | spacer                          | 
+   | 5.   | fullName                        | 
+   |      | birthDeath                      | 
+   | ???  | isDescendant                    | u
+   ------------------------------------------------------------------------------------------
+  
+   ############## */
+
 :root {
-    --maleBlue: #679dda;
-    --maleBlue: #1248dcdd;
-    --femaleGreen: #ad5892;
-    --leafcolour: rgb(237, 230, 230);
-    --treePath: 2px solid black;
-    --pageWidth: 100;
-    --pageWidthPC: calc(var(--pageWidth) * 1%);
-    --leafWidth: calc(var(--pageWidth) * 1px);
-    --leafHeight: calc(var(--pageWidth) * 1px);
-    --nameFont: 12px "Poppins";
-    --birthDeathFont: 10px "Poppins";
-    --gridcolor1: #2196f3;
-    --gridcolor1: #ffffff;
-    --gridcolor2: rgba(255, 255, 255, 0.867);
-    --offset: 67.5px;
-    /* review this default value */
+  --maleBlue: #679dda;
+  --maleBlue: #1248dcdd;
+  --femaleGreen: #ad5892;
+  --leafcolour: rgb(237, 230, 230);
+  --treePath: 2px solid black;
+  --pageWidth: 100;
+  --pageWidthPC: calc(var(--pageWidth)*1%);
+  --leafWidth: calc(var(--pageWidth)*1px);
+  --leafHeight: calc(var(--pageWidth) * 1px);
+  --nameFont: 12px "Poppins";
+  --birthDeathFont: 10px "Poppins";
+  --gridcolor1: #2196f3;
+  --gridcolor1: #ffffff;
+  --gridcolor2: rgba(255, 255, 255, 0.867);
+  --offset: 67.5px;
+  /* review this default value */
 }
 
-html,
-body {
-    height: 100%;
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    overflow: auto;
-    /* Ensure scrollbars appear when needed */
+.leaf {
+
+  border-radius: 10px;
+  display: inline-block;
+  background-color: var(--leafcolour);
+  width: var(--leafWidth);
+  text-align: center;
+  position: relative;
 }
 
-body {
-    min-width: 100vw;
-    /* Prevent body from shrinking */
+/* .leaf.has-ancestor::after {
+  content: '';
+  position: absolute;
+  top: -20px;
+  bottom: 0;
+  left: 50%;
+  border-left: 2px solid white;
+  height: 20px;
+} */
+
+.male {
+  border: 2px solid var(--maleBlue);
 }
+
+.female {
+  border: 2px solid var(--femaleGreen);
+}
+
+.fullName {
+  padding-top: 10px;
+  font: var(--nameFont);
+}
+
+.birthDeath {
+  font: var(--birthDeathFont);
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.spacer {
+  display: inline-block;
+  width: 30px;
+  height: 50px;
+  position: relative;
+  top: 25px;
+}
+
+.spacer::before,
+.spacer::after {
+  content: '';
+  position: absolute;
+  background-color: black;
+}
+
+.spacer::before {
+  top: 0%;
+  left: 0;
+  right: 0;
+  height: 2px;
+}
+
+/* descendant */
+.spacer::after {
+  left: 50%;
+  content: '';
+  width: 2px;
+  height: 55px;
+}
+
+
+/* ######## grid stuff ######### */
 
 .grid-master {
-    display: grid;
-    grid-template-areas:
-        "grid-gen1"
-        "grid-gen2"
-        "grid-gen3"
-        "grid-gen4";
-    grid-template-rows: auto;
-    overflow: auto;
-    /* Ensure grid-master itself can scroll */
-    width: max-content;
-    /* Prevent the grid from shrinking */
+  display: grid;
+  grid-template-areas:
+    "grid-gen1" "grid-gen2" "grid-gen3" "grid-gen4";
+  grid-template-rows: auto;
+  overflow: auto;
+  width: max-content;
+  /* Ensure grid-master itself can scroll */
+  background-color: navy;
+  padding: 2px;
+  margin-top: 4px;
+}
+
+.grid-gen1 {
+  grid-template-columns: 1;
+  grid-area: grid-gen1;
+
+}
+
+.grid-gen2 {
+  grid-template-columns: repeat(2, 1fr);
+  grid-area: grid-gen2;
+}
+
+.grid-gen3 {
+  grid-template-columns: repeat(12, 1fr);
+  grid-area: grid-gen3;
+}
+
+.grid-gen4 {
+  grid-template-columns: repeat(72, 1fr);
+  grid-area: grid-gen4;
 }
 
 .grid-gen1,
 .grid-gen2,
 .grid-gen3,
 .grid-gen4 {
-    display: grid;
-    grid-gap: 10px;
-    padding: 15px;
-    background-color: var(--gridcolor1);
-}
-
-.grid-gen1 {
-    grid-template-columns: repeat(1, 200px);
-    /* Adjust width as needed */
-    grid-area: grid-gen1;
-}
-
-.grid-gen2 {
-    grid-template-columns: repeat(2, 200px);
-    /* Adjust width as needed */
-    grid-area: grid-gen2;
-}
-
-.grid-gen3 {
-    grid-template-columns: repeat(12, 200px);
-    /* Adjust width as needed */
-    grid-area: grid-gen3;
-}
-
-.grid-gen4 {
-    grid-template-columns: repeat(72, 200px);
-    /* Adjust width as needed */
-    grid-area: grid-gen4;
+  display: grid;
+  grid-gap: 0px;
+  background-color: var(--gridcolor1);
+  padding: 15px;
+  text-align: center;
+  /* border: 5px solid black; */
+  max-width: 100%;
+  /* box-sizing: border-box; */
 }
 
 .item {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: lightgray;
-    border: 1px solid #000;
-    padding: 15px;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 15px;
+  align-items: center;
+  position: relative;
+
 }
 
 .item1 {
-    background-color: red;
+  grid-column: span 1;
+  background-color: red;
+
+
 }
 
 .item2 {
-    background-color: yellow;
+  grid-column: span 1;
+  background-color: yellow;
+  position: relative;
 }
 
 .item3 {
-    background-color: green;
+  grid-column: span 1;
+  background-color: green;
 }
 
 .item4 {
-    background-color: #ad5892;
+  grid-column: span 2;
+  background-color: #ad5892;
+}
+
+.item5 {
+  grid-column: span 2;
+  background-color: gold;
+}
+
+.item6 {
+  grid-column: span 2;
+  background-color: silver;
+}
+
+.item7 {
+  grid-column: span 3;
+  background-color: burlywood;
+}
+
+.item8 {
+  grid-column: span 3;
+  background-color: lightblue;
+}
+
+.item9 {
+  background-color: aliceblue;
+  grid-column: span 4;
+}
+
+.item10,
+.item11 {
+  grid-column: span 4;
+}
+
+.item12,
+.item13 {
+  grid-column: span 6;
+}
+
+.item14 {
+  grid-column: span 12;
+}
+
+.item15 {
+  grid-column: span 18;
+}
+
+.item16,
+.item17 {
+  grid-column: span 9;
+}
+
+/* ######## offspring #########*/
+/* Common styles for all connecting lines */
+.first-offspring::before,
+.first-offspring::after,
+.last-offspring::before,
+.last-offspring::after,
+.mid-offspring::before,
+.mid-offspring::after,
+.only-offspring::before,
+.only-offspring::after {
+  content: '';
+  position: absolute;
+  top: -20px;
+}
+
+/* Common style for vertical line connecting to offspring */
+.first-offspring::before,
+.last-offspring::before,
+.mid-offspring::before,
+.only-offspring::before {
+  height: 20px;
+}
+
+/* Common style for horizontal line connecting to offspring */
+.first-offspring::after,
+.last-offspring::after,
+.mid-offspring::after {
+  border-top: var(--treePath);
+}
+
+/* Connecting horizontal lines for male and female offspring */
+.first-offspring.female-offset::before,
+.first-offspring.female-offset::after {
+  left: calc(50% + var(--offset));
+  width: calc(50% - var(--offset));
+}
+
+.first-offspring.male-offset::before,
+.first-offspring.male-offset::after {
+  left: calc(50% - var(--offset));
+  width: calc(50% + var(--offset));
+}
+
+.first-offspring.single-offset::before,
+.first-offspring.single-offset::after {
+  left: 50%;
+  width: 50%;
+}
+
+.last-offspring.female-offset::before,
+.last-offspring.female-offset::after {
+  right: calc(50% - var(--offset));
+  width: calc(50% + var(--offset));
+}
+
+.last-offspring.male-offset::before,
+.last-offspring.male-offset::after {
+  right: calc(50% + var(--offset));
+  width: calc(50% - var(--offset));
+}
+
+.last-offspring.single-offset::before,
+.last-offspring.single-offset::after {
+  right: 50%;
+  width: 50%;
+}
+
+.mid-offspring.female-offset::before {
+  left: calc(50% + var(--offset));
+}
+
+.mid-offspring.male-offset::before {
+  left: calc(50% - var(--offset));
+}
+
+.mid-offspring.single-offset::before {
+  left: calc(50% + 0px);
+}
+
+.mid-offspring::after {
+  width: 100%;
+}
+
+
+
+
+/* Connecting vertical lines for male and female offspring */
+.first-offspring::before {
+  border-left: var(--treePath);
+}
+
+.last-offspring::before {
+  border-right: var(--treePath);
+}
+
+.mid-offspring::before {
+  border-right: var(--treePath);
+}
+
+.only-offspring::before {
+  border-right: var(--treePath);
+  left: 50%;
+}
+
+
+
+/* ###############################################
+   Use these for vertical tree on last generation 
+   ###############################################
+
+  ------------------ 
+  VERTICAL STRUCTURE
+  ------------------
+  CSS: 
+  1. Delete child items (9-17) [not strictly necessary] 
+  2. Create child items (already done below)
+  3. Create spans for children. (this could be done by adding to parent items) (done below)
+  4. Reduce cols in grid-gen4 (added inline to JS)
+  5. Add vertical spacer in CSS (vSpace below)
+  6. Create CSS vertical line to top of each last gen child leaf (isDescendant below)
+  HTML:
+  replace with child structure. 
+  Add isDescendant to each leaf 
+  vSpacer between each of the children except first.
+  Add vertical spacer for each child (except first) in last gen
+  
+   */
+
+/* 2. Create child items */
+.item4-children,
+.item5-children,
+.item6-children,
+.item7-children,
+.item8-children {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  /* Ensure items are aligned to the top */
+}
+
+/* 3. Create spans */
+.item4-children {
+  grid-column: span 2;
+  background-color: #ad5892;
+
+}
+
+.item5-children {
+  grid-column: span 2;
+  background-color: gold;
+}
+
+.item6-children {
+  grid-column: span 2;
+  background-color: silver;
+}
+
+.item7-children {
+  grid-column: span 3;
+  background-color: burlywood;
+}
+
+.item8-children {
+  grid-column: span 3;
+  background-color: lightblue;
+}
+
+/* 5. Vertical spacer */
+.vSpace {
+  display: block;
+  width: 100%;
+  height: 20px;
+  /* Height of the vertical space */
+}
+
+/* 6. last gen descendant lines (vertical) */
+.isDescendant::before,
+.isDescendant::after {
+  content: '';
+  position: absolute;
+  top: -21px;
+}
+
+.isDescendant::before {
+  height: 21px;
+  border-left: var(--treePath);
 }
