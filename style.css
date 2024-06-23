@@ -124,7 +124,7 @@
   content: '';
   width: 2px;
 /*   height: 44.5px; */
-  height: calc(100% - 2px); 
+  height: calc(100% - 5px); 
 }
 
 
