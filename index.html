@@ -4,331 +4,189 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="style.css" />
-    <title>my family tree</title>
+    <link rel="stylesheet" href="trim.css" />
+    <title>Trim Tree</title>
   </head>
   <body>
     <header>
-      <h1>Tree</h1>
+      <h1>Trim Tree</h1>
     </header>
     <button id="remove-color-button">Remove Color</button>
-    <button id="vertical-tree-button">Vertical Tree</button>
     <div class="grid-master">
       <div class="grid-gen1">
-        <!-- item1  -->
+        <!-- item 1 -->
         <div class="item item1">
           <div class="leaf male">
-            <div class="fullName">Male 1 1.1</div>
-            <div class="birthDeath">(1910 - 1981)</div>
+            <div class="fullName">Note 1</div>
+            <div class="birthDeath">(???? - ????)</div>
           </div>
           <span class="spacer"></span>
           <div class="leaf female">
-            <div class="fullName">Female 1 1.1</div>
-            <div class="birthDeath">(1912 - 2003)</div>
+            <div class="fullName">Note 2</div>
+            <div class="birthDeath">(???? - ????)</div>
           </div>
         </div>
-        <!-- item1 end  -->
+        <!-- item 2  -->
+        <div class="item item2">
+          <div class="leaf male">
+            <div class="fullName">Note 3</div>
+            <div class="birthDeath">(???? - ????)</div>
+          </div>
+          <span class="spacer"></span>
+          <div class="leaf female">
+            <div class="fullName">Note 4</div>
+            <div class="birthDeath">(???? - ????)</div>
+          </div>
+        </div>
+
+        <!-- item 3  -->
+        <div class="item item3">
+          <div class="leaf male">
+            <div class="fullName">John Marchant<sup>5</sup></div>
+            <div class="birthDeath">(1882/3 - 1934)</div>
+          </div>
+          <span class="spacer"></span>
+          <div class="leaf female">
+            <div class="fullName">Alice Marchant<sup>6</sup></div>
+            <div class="birthDeath">(???? - ????)</div>
+          </div>
+        </div>
+
+        <!-- item 4  -->
+        <div class="item item4">
+          <div class="leaf male">
+            <div class="fullName">Note 7</div>
+            <div class="birthDeath">(???? - ????)</div>
+          </div>
+          <span class="spacer"></span>
+          <div class="leaf female">
+            <div class="fullName">Note 8</div>
+            <div class="birthDeath">(???? - ????)</div>
+          </div>
+        </div>
       </div>
 
+      <!-- ### gen2 ### -->
       <div class="grid-gen2">
-        <!-- item2  -->
-        <div class="item item2 first-offspring male-offset">
-          <div class="leaf male">
-            <div class="fullName">Male 2 2.1</div>
-            <div class="birthDeath">(1933 - 2015)</div>
+        <!-- item 5  -->
+        <div class="item item5 xxx-offspring">
+          <div class="leaf male isDescendant">
+            <div class="fullName">Henry Trimmings<sup>9</sup></div>
+            <div class="birthDeath">(???? - ????)</div>
           </div>
           <span class="spacer"></span>
-          <div class="leaf female">
-            <div class="fullName">Female 2 2.1</div>
-            <div class="birthDeath">(1930 - 2010)</div>
+          <div class="leaf female isDescendant">
+            <div class="fullName">Elizabeth Trimmings<sup>10</sup></div>
+            <div class="birthDeath">(???? - ????)</div>
           </div>
         </div>
-        <!-- item2 end  -->
 
-        <!-- item3  -->
-        <div class="item item3 last-offspring female-offset">
-          <div class="leaf male">
-            <div class="fullName">Male 3 2.2</div>
-            <div class="birthDeath">(1936 - 2024)</div>
+        <!-- item 6  -->
+        <div class="item item6 xxx-offspring">
+          <div class="leaf male isDescendant">
+            <div class="fullName">George Marchant<sup>11</sup></div>
+            <div class="birthDeath">(1909 - 1994)</div>
           </div>
           <span class="spacer"></span>
-          <div class="leaf female">
-            <div class="fullName">Female 3 2.2</div>
-            <div class="birthDeath">(1940 - 2011)</div>
+          <div class="leaf female isDescendant">
+            <div class="fullName">Winifred Marchant<sup>12</sup></div>
+            <div class="birthDeath">(1908 - 1938)</div>
           </div>
         </div>
-        <!-- item3 end  -->
       </div>
-
+      <!-- ### gen 3 ### -->
       <div class="grid-gen3">
-        <!-- item4  -->
-        <div class="item item4 first-offspring male-offset">
-          <div class="leaf male">
-            <div class="fullName">Male 4 3.1</div>
-            <div class="birthDeath">(1955 - YYYY)</div>
+        <!-- item 7  -->
+        <div class="item item7 xxx-offspring">
+          <div class="leaf male isDescendant">
+            <div class="fullName">Alan Trimmings</div>
+            <div class="birthDeath">(1935 - )</div>
           </div>
           <span class="spacer"></span>
-          <div class="leaf female">
-            <div class="fullName">Female 4 3.1</div>
-            <div class="birthDeath">(XXXX - YYYY)</div>
+          <div class="leaf female isDescendant">
+            <div class="fullName">Pat Trimmings</div>
+            <div class="birthDeath">(1937 - )</div>
           </div>
         </div>
-        <!-- item4 end  -->
-
-        <!-- item5  -->
-        <div class="item item5 mid-offspring male-offset">
-          <div class="leaf male">
-            <div class="fullName">Male 5 3.2</div>
-            <div class="birthDeath">(195X - YYYY)</div>
-          </div>
-          <span class="spacer"></span>
-          <div class="leaf female">
-            <div class="fullName">Female 5 3.2</div>
-            <div class="birthDeath">(XXXX - YYYY)</div>
-          </div>
-        </div>
-        <!-- item5 end  -->
-
-        <!-- item6  -->
-        <div class="item item6 last-offspring female-offset">
-          <div class="leaf male">
-            <div class="fullName">xxMale 6 3.3</div>
-            <div class="birthDeath">(1962 - YYYY)</div>
-          </div>
-          <span class="spacer"></span>
-          <div class="leaf female">
-            <div class="fullName">Female 6 3.3</div>
-            <div class="birthDeath">(XXXX - YYYY)</div>
-          </div>
-        </div>
-        <!-- item6 end  -->
-
-        <!-- item7  -->
-        <div class="item item7 first-offspring male-offset">
-          <div class="leaf male">
-            <div class="fullName">Male 7 3.4</div>
-            <div class="birthDeath">(1964 - YYYY)</div>
-          </div>
-          <span class="spacer"></span>
-          <div class="leaf female">
-            <div class="fullName">Female 7 3.4</div>
-            <div class="birthDeath">(1970 - YYYY)</div>
-          </div>
-        </div>
-        <!-- item7 end  -->
-
-        <!-- item8  -->
-        <div class="item item8 last-offspring female-offset">
-          <div class="leaf male">
-            <div class="fullName">Male 8 3.5</div>
-            <div class="birthDeath">(1976 - YYYY)</div>
-          </div>
-          <span class="spacer"></span>
-          <div class="leaf female">
-            <div class="fullName">Female 8 3.5</div>
-            <div class="birthDeath">(1976 - YYYY)</div>
-          </div>
-        </div>
-        <!-- item8 end  -->
       </div>
-      <div class="grid-gen4">
-        <!-- item9  -->
-        <div class="item item9 first-offspring single-offset">
-          <div class="leaf male">
-            <div class="fullName">Male 9 4.1</div>
-            <div class="birthDeath">(XXXX - YYYY)</div>
-          </div>
-        </div>
-        <!-- item9 end  -->
-        <!-- item10  -->
-        <div class="item item10 mid-offspring single-offset">
-          <div class="leaf male">
-            <div class="fullName">Male 10 4.2</div>
-            <div class="birthDeath">(XXXX - YYYY)</div>
-          </div>
-        </div>
-        <!-- item10 end  -->
-        <!-- item11  -->
-        <div class="item item11 last-offspring single-offset">
-          <div class="leaf male">
-            <div class="fullName">Male 11 4.3</div>
-            <div class="birthDeath">(XXXX - YYYY)</div>
-          </div>
-        </div>
-        <!-- item11 end  -->
-        <!-- item12  -->
 
-        <div class="item item12 first-offspring single-offset">
+      <!-- ### gen 3.1 ### -->
+      <div class="grid-gen31">
+        <!-- item 8  -->
+        <div class="item item8 yyy-offspring">
+          <div class="leaf male isDescendant">
+            <div class="fullName">Michael Trimmings</div>
+            <div class="birthDeath">(1964 - )</div>
+          </div>
+          <span class="spacer"></span>
           <div class="leaf female">
-            <div class="fullName">Female 12 4.4</div>
-            <div class="birthDeath">(XXXX - YYYY)</div>
+            <div class="fullName">Donna Trimmings</div>
+            <div class="birthDeath">(1963 - )</div>
+          </div>
+          <!-- single -->
+          <span class="spacerBlank"></span>
+          <div class="leaf female isDescendant">
+            <div class="fullName">Sharon Trimmings</div>
+            <div class="birthDeath">(1966 - )</div>
           </div>
         </div>
-        <!-- item12 end  -->
-        <!-- item13  -->
-
-        <div class="item item13 last-offspring single-offset">
-          <div class="leaf male">
-            <div class="fullName">Male 13 4.5</div>
-            <div class="birthDeath">(XXXX - YYYY)</div>
-          </div>
-        </div>
-        <!-- item13 end  -->
-        <!-- item14  -->
-        <div class="item item14">
-          <div class="leaf female only-offspring single-offset">
-            <div class="fullName">Female 14 4.6</div>
-            <div class="birthDeath">(XXXX - YYYY)</div>
-          </div>
-        </div>
-        <!-- item14 end  -->
-        <!-- item15  -->
-        <div class="item item15 only-offspring">
-          <div class="leaf female">
-            <div class="fullName">Female 15 4.7</div>
-            <div class="birthDeath">(1998 - YYYY)</div>
-          </div>
-        </div>
-
-        <!-- item15 end  -->
-        <!-- item16  -->
-        <div class="item item16 first-offspring single-offset">
-          <div class="leaf male">
-            <div class="fullName">Male 16 4.8</div>
-            <div class="birthDeath">(2011 - YYYY)</div>
-          </div>
-        </div>
-        <!-- item16 end  -->
-        <!-- item17  -->
-        <div class="item item17 last-offspring single-offset">
-          <div class="leaf female">
-            <div class="fullName">Female 17 4.9</div>
-            <div class="birthDeath">(2016 - YYYY)</div>
-          </div>
-        </div>
-        <!-- item17 end  -->
-        <div class="container"></div>
       </div>
+      <!-- item9, item10, item11 -->
+      <div class="item item8-children">
+        <div class="leaf male isDescendant shifty">
+          <div class="fullName">Ross Trimmings</div>
+          <div class="birthDeath">(???? - )</div>
+        </div>
+        <span class="vSpace"></span>
+        <div class="leaf male isDescendant shifty">
+          <div class="fullName">Darcy Trimmings</div>
+          <div class="birthDeath">(???? - )</div>
+        </div>
+        <span class="vSpace"></span>
+        <div class="leaf male isDescendant shifty">
+          <div class="fullName">Fraser Trimmings</div>
+          <div class="birthDeath">(???? - )</div>
+        </div>
+      </div>
+      <!-- item9, item10, item11 under item4 -->
     </div>
-
+    <!-- Notes Section -->
+    <section class="notes">
+      <h2>Notes</h2>
+      <ol>
+        <li>No info</li>
+        <li>No info</li>
+        <li>Surname: Legall</li>
+        <li><span style="color: red">Maiden name: Bonning?</span></li>
+        <li>John Valentine Marchant. Profession: Stonemason.</li>
+        <li>Alice Ann Marchant. Maiden name: Reynolds.</li>
+        <li>No info</li>
+        <li>No info</li>
+        <li>
+          Henry Roger Trimmings. Profession: Brewer's labourer. Lived in
+          Lambeth. <span style="color: red">What year was he born? Die?</span>
+        </li>
+        <li>
+          Maiden name: Legall. Married Jul - Sep 1932.
+          <span style="color: red">Born 1920, died 1987?</span>
+        </li>
+        <li>
+          George Thomas Marchant. Born 21/2/1909. Profession: Boot repairer.
+          Lived in Battersea. Remarried.
+        </li>
+        <li>
+          Known as Winnie. Maiden name: Burrell.<span style="color: red">
+            Middle name Grace and maiden name Dearlove?</span
+          >
+        </li>
+      </ol>
+    </section>
     <script type="module">
-      // next steps: JS verticals; page width;
-      // hasOffspring; CSS variables (e.g, span numbers, grid columns)
       document.addEventListener("DOMContentLoaded", function () {
-        main(familyData);
-        addChildrenClassesCSS();
         // Add button to remove colour
         const button = document.getElementById("remove-color-button");
         button.addEventListener("click", removeColor);
-
-        const btnVertical = document.getElementById("vertical-tree-button");
-        btnVertical.addEventListener("click", verticalTree);
       });
-
-      // *** Functions *** //
-      function main(familyData) {
-        // Clear existing content in .grid-master
-        document.querySelectorAll(".grid-master").forEach((grid) => {
-          grid.innerHTML = ""; // Remove all HTML content inside each element with class 'grid-master'
-        });
-
-        // Create generation divs
-        familyData.forEach((generation) => {
-          const genNumber = generation.genNumber;
-          const genDiv = document.createElement("div");
-          genDiv.classList.add(`grid-gen${genNumber}`);
-
-          // get members for each generation
-          generation.genMembers.forEach((node) => {
-            // const idx = node.idx;
-            // const offspring = node.offspring;
-            // const offset = node.offset;
-            const { idx, offspring, offset } = node;
-
-            if (node.leafType === "couple") {
-              const getCouple = createCouple(node, idx, offspring, offset);
-              genDiv.appendChild(getCouple);
-            }
-            if (node.leafType === "single") {
-              const getSingle = createSingle(node, idx, offspring, offset);
-              genDiv.appendChild(getSingle);
-            }
-            // console.log(`yyy outerHTML:`, genDiv.outerHTML);
-          });
-
-          // Append the generation div to the container after processing all members
-          const container = document.querySelector(".grid-master");
-          container.appendChild(genDiv);
-        });
-      }
-
-      function createCouple(coupleNode, idx, offspring, offset) {
-        const coupleDiv = document.createElement("div");
-        coupleDiv.classList.add(
-          "item",
-          `item${idx}`,
-          `${offspring}-offspring`,
-          `${offset}-offset`
-        );
-
-        const birthDeath1 = `(${coupleNode["members"][0]["born"]} - ${coupleNode["members"][0]["died"]})`;
-        const birthDeath2 = `(${coupleNode["members"][1]["born"]} - ${coupleNode["members"][1]["died"]})`;
-        const p1 = createPerson(
-          coupleNode["members"][0]["name"],
-          birthDeath1,
-          coupleNode["members"][0]["gender"]
-        );
-        const p2 = createPerson(
-          coupleNode["members"][1]["name"],
-          birthDeath2,
-          coupleNode["members"][1]["gender"]
-        );
-        // Create the spacer element
-        const spacer = document.createElement("span");
-        spacer.classList.add("spacer");
-
-        coupleDiv.appendChild(p1);
-        coupleDiv.appendChild(spacer);
-        coupleDiv.appendChild(p2);
-
-        return coupleDiv;
-      }
-
-      function createSingle(singleNode, idx, offspring, offset) {
-        const singleDiv = document.createElement("div");
-        singleDiv.classList.add(
-          "item",
-          `item${idx}`,
-          `${offspring}-offspring`,
-          `${offset}-offset`
-        );
-        const birthDeath1 = `(${singleNode["members"][0]["born"]} - ${singleNode["members"][0]["died"]})`;
-        const p1 = createPerson(
-          singleNode["members"][0]["name"],
-          birthDeath1,
-          singleNode["members"][0]["gender"]
-        );
-        singleDiv.appendChild(p1);
-        return singleDiv;
-      }
-
-      function createPerson(fullName, birthDeath, sex) {
-        const leafDiv = document.createElement("div");
-        leafDiv.classList.add("leaf", sex);
-
-        const fullNameDiv = document.createElement("div");
-        fullNameDiv.classList.add("fullName");
-        fullNameDiv.textContent = fullName + ` JS`;
-
-        const birthDeathDiv = document.createElement("div");
-        birthDeathDiv.classList.add("birthDeath");
-        birthDeathDiv.textContent = birthDeath;
-
-        leafDiv.appendChild(fullNameDiv);
-        leafDiv.appendChild(birthDeathDiv);
-
-        return leafDiv;
-      }
 
       function removeColor() {
         console.log("colour removed");
@@ -338,435 +196,13 @@
             item.style.backgroundColor = "transparent"; // Change the background color to transparent
           }
         }
-        for (let i = 4; i <= 9; i++) {
+        for (let i = 1; i <= 9; i++) {
           const item = document.querySelector(`.item${i}-children`);
           if (item) {
             item.style.backgroundColor = "transparent"; // Change the background color to transparent
           }
         }
       }
-
-      function verticalTree() {
-        const gridGen4 = document.querySelector(".grid-gen4");
-        if (!gridGen4) {
-          console.error("Container .grid-gen4 not found");
-          return;
-        }
-
-        // Clear the existing content in the grid-gen4 container
-        gridGen4.innerHTML = "";
-
-        // Update the CSS to change the grid columns from 72 to 12 and change padding
-        gridGen4.style.gridTemplateColumns = "repeat(12, 1fr)";
-        gridGen4.style.paddingTop = "0px";
-        const gridGen3 = document.querySelector(".grid-gen3");
-        gridGen3.style.paddingBottom = "0px";
-
-        familyData.forEach((generation) => {
-          if (generation.genNumber === 4) {
-            console.log(`Generation ${generation.genNumber}:`);
-
-            // Create a map to hold the parent containers
-            const parentContainers = {};
-
-            generation.genMembers.forEach((member) => {
-              const parentIdx = member.members[0].parent_idx;
-              let vDiv;
-
-              if (!parentContainers[parentIdx]) {
-                vDiv = document.createElement("div");
-                vDiv.classList.add("item", `item${parentIdx}-children`);
-                parentContainers[parentIdx] = vDiv;
-              } else {
-                vDiv = parentContainers[parentIdx];
-              }
-              let pidx = 0;
-              member.members.forEach((person, index) => {
-                const birthDeath1 = `(${person["born"]} - ${person["died"]})`;
-                const p1 = createPerson(
-                  person["name"],
-                  birthDeath1,
-                  person["gender"]
-                );
-
-                // Add a vertical space if this is not the first person and the parent_idx matches the previous person's parent_idx
-
-                console.log(person.parent_idx);
-                if (person.parent_idx > pidx) {
-                  const vSpace = document.createElement("span");
-                  vSpace.classList.add("vSpace");
-                  vDiv.append(vSpace);
-                }
-                pidx = person.parent_idx;
-                // Add 'isDescendant' class to the 'leaf' div
-                p1.classList.add("isDescendant");
-
-                vDiv.append(p1);
-
-                console.log(`Name: ${person.name}, Born: ${person.born}`);
-              });
-
-              // Append the container for this parent's children to the main grid container if it's new
-              if (!parentContainers[parentIdx].parentNode) {
-                gridGen4.appendChild(parentContainers[parentIdx]);
-              }
-            });
-          }
-        });
-      }
-
-      function addChildrenClassesCSS() {
-        const style = document.createElement("style");
-        style.innerHTML = `
-          .item4-children,
-          .item4 {
-            grid-column: span 2;
-            background-color: #ad5892;
-          }`;
-        document.head.appendChild(style);
-      }
-
-      // *** end Functions *** //
-
-      // *** JSON tree *** //
-      const familyData = [
-        {
-          genNumber: 1,
-          genMembers: [
-            {
-              leafType: "couple",
-              offspring: "none",
-              offset: "none",
-              hasOffspring: 1,
-              idx: 1,
-              members: [
-                {
-                  name: "Male 1 1.1",
-                  gender: "male",
-                  born: 1910,
-                  died: 1981,
-                },
-                {
-                  name: "Female 1 1.1",
-                  gender: "female",
-                  born: 1912,
-                  died: 2003,
-                },
-              ],
-            },
-          ],
-        },
-        // gen 2
-        {
-          genNumber: 2,
-          genMembers: [
-            {
-              leafType: "couple",
-              offspring: "first",
-              offset: "male",
-              hasOffspring: 1,
-              idx: 2,
-              members: [
-                {
-                  name: "Male 2 2.1",
-                  gender: "male",
-                  born: 1933,
-                  died: 2015,
-                },
-                {
-                  name: "Female 2 2.1",
-                  gender: "female",
-                  born: 1930,
-                  died: 2010,
-                },
-              ],
-            },
-            {
-              leafType: "couple",
-              offspring: "last",
-              offset: "male",
-              hasOffspring: 1,
-              idx: 3,
-              members: [
-                {
-                  name: "Male 3 2.2",
-                  gender: "male",
-                  born: 1936,
-                  died: 2023,
-                },
-                {
-                  name: "Female 3 2.2",
-                  gender: "female",
-                  born: 1940,
-                  died: 2011,
-                },
-              ],
-            },
-          ],
-        },
-        // gen 3
-        {
-          genNumber: 3,
-          genMembers: [
-            {
-              leafType: "couple",
-              offspring: "first",
-              offset: "male",
-              hasOffspring: 1,
-              idx: 4,
-              members: [
-                {
-                  name: "Male 4 3.1",
-                  gender: "male",
-                  born: 1955,
-                  died: null,
-                },
-                {
-                  name: "Female 4 3.1",
-                  gender: "female",
-                  born: 1900,
-                  died: null,
-                },
-              ],
-            },
-            {
-              leafType: "couple",
-              offspring: "mid",
-              offset: "male",
-              hasOffspring: 1,
-              idx: 5,
-              members: [
-                {
-                  name: "Male 5 3.2",
-                  gender: "male",
-                  born: 195,
-                  died: null,
-                },
-                {
-                  name: "Female 5 3.2",
-                  gender: "female",
-                  born: 1900,
-                  died: null,
-                },
-              ],
-            },
-            {
-              leafType: "couple",
-              offspring: "last",
-              offset: "male",
-              hasOffspring: 1,
-              idx: 6,
-              members: [
-                {
-                  name: "Male 6 3.3",
-                  gender: "male",
-                  born: 1962,
-                  died: null,
-                },
-                {
-                  name: "Female 6 3.3",
-                  gender: "female",
-                  born: 1900,
-                  died: null,
-                },
-              ],
-            },
-            {
-              leafType: "couple",
-              offspring: "first",
-              offset: "male",
-              hasOffspring: 1,
-              idx: 7,
-              members: [
-                {
-                  name: "Male 7 3.4",
-                  gender: "male",
-                  born: 1964,
-                  died: null,
-                },
-                {
-                  name: "Female 7 3.4",
-                  gender: "female",
-                  born: 1970,
-                  died: null,
-                },
-              ],
-            },
-            {
-              leafType: "couple",
-              offspring: "last",
-              offset: "male",
-              hasOffspring: 1,
-              idx: 8,
-              members: [
-                {
-                  name: "Male 8 3.5",
-                  gender: "male",
-                  born: 1976,
-                  died: null,
-                },
-                {
-                  name: "Female 8 3.5",
-                  gender: "female",
-                  born: 1976,
-                  died: null,
-                },
-              ],
-            },
-          ],
-        },
-        // gen 4
-        {
-          genNumber: 4,
-          genMembers: [
-            {
-              leafType: "single",
-              offspring: "first",
-              offset: "single",
-              hasOffspring: 1,
-              idx: 9,
-              members: [
-                {
-                  name: "Male 9 4.1",
-                  gender: "male",
-                  born: 1900,
-                  died: null,
-                  parent_idx: 4,
-                },
-              ],
-            },
-            {
-              leafType: "single",
-              offspring: "mid",
-              offset: "single",
-              hasOffspring: 1,
-              idx: 10,
-              members: [
-                {
-                  name: "Male 10 4.2",
-                  gender: "male",
-                  born: 1900,
-                  died: null,
-                  parent_idx: 4,
-                },
-              ],
-            },
-            {
-              leafType: "single",
-              offspring: "last",
-              offset: "single",
-              hasOffspring: 1,
-              idx: 11,
-              members: [
-                {
-                  name: "Male 11 4.3",
-                  gender: "male",
-                  born: 1900,
-                  died: null,
-                  parent_idx: 4,
-                },
-              ],
-            },
-            {
-              leafType: "single",
-              offspring: "first",
-              offset: "single",
-              hasOffspring: 1,
-              idx: 12,
-              members: [
-                {
-                  name: "Female 12 4.4",
-                  gender: "female",
-                  born: 1900,
-                  died: null,
-                  parent_idx: 5,
-                },
-              ],
-            },
-            {
-              leafType: "single",
-              offspring: "last",
-              offset: "single",
-              hasOffspring: 1,
-              idx: 13,
-              members: [
-                {
-                  name: "Male 13 4.5",
-                  gender: "male",
-                  born: 1900,
-                  died: null,
-                  parent_idx: 5,
-                },
-              ],
-            },
-            {
-              leafType: "single",
-              offspring: "only",
-              offset: "single",
-              hasOffspring: 1,
-              idx: 14,
-              members: [
-                {
-                  name: "Male 14 4.6",
-                  gender: "female",
-                  born: 1900,
-                  died: null,
-                  parent_idx: 6,
-                },
-              ],
-            },
-            {
-              leafType: "single",
-              offspring: "only",
-              offset: "single",
-              hasOffspring: 1,
-              idx: 15,
-              members: [
-                {
-                  name: "Male 15 4.7",
-                  gender: "female",
-                  born: 1998,
-                  died: null,
-                  parent_idx: 7,
-                },
-              ],
-            },
-            {
-              leafType: "single",
-              offspring: "first",
-              offset: "single",
-              hasOffspring: 1,
-              idx: 16,
-              members: [
-                {
-                  name: "Male 16 4.8",
-                  gender: "male",
-                  born: 2011,
-                  died: null,
-                  parent_idx: 8,
-                },
-              ],
-            },
-            {
-              leafType: "single",
-              offspring: "last",
-              offset: "single",
-              hasOffspring: 1,
-              idx: 17,
-              members: [
-                {
-                  name: "Female 17 4.9",
-                  gender: "female",
-                  born: 2016,
-                  died: null,
-                  parent_idx: 8,
-                },
-              ],
-            },
-          ],
-        },
-      ];
-      // *** end JSON tree *** //
     </script>
   </body>
 </html>
