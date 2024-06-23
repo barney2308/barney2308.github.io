@@ -1,0 +1,386 @@
+/* ##############  / 
+   GENERAL NOTES
+   1. box width: 100px
+   2. spacer 50px
+
+  
+   CLASSES
+   ------------------------------------------------------------------------------------------
+   | Ref   | Class Name                     | Description
+   ------------------------------------------------------------------------------------------
+   | 1.   | grid-master                     |
+   | 2.   | grid-gen#                       | new grid row for each generation. starts at 1.
+   | 3.   | item                            |
+   |      | item#                           |
+   |      | [first/last/mid/only]-offspring |
+   |      | [male/female/single]-offset     | 
+   | 4    | leaf                            | container for leaf or double-leaf
+   |      | [male/female]                   | 
+   | 4.1  | spacer                          | 
+   | 5.   | fullName                        | 
+   |      | birthDeath                      | 
+   | ???  | isDescendant                    | u
+   ------------------------------------------------------------------------------------------
+  
+- change order in grid-master grid template areas (3,2,1,4)
+- HTML / JSON - remove first/last/mid -offspring and male/female -offset where relevant (everywhere?)
+- Change span column numbers (8,4,2,1)
+- All leaves from 2 Gen + have isDescendant
+- Apply padding left and right to top row .items
+- Add xxx-offspring to geb2+ (change name)
+- HTML: add Gen4 vertical 
+- TO DO: DT and sibling;
+   ############## */
+
+:root {
+  --maleBlue: #679dda;
+  --maleBlue: #1248dcdd;
+  --femaleGreen: #ad5892;
+  --leafcolour: rgb(237, 230, 230);
+  --treePath: 2px solid black;
+  --leafWidth: 141px;
+  --leafHeight: 131px;
+  --nameFont: 14px "Poppins";
+  --birthDeathFont: 14px "Poppins";
+  --gridcolor1: #2196f3;
+  --gridcolor1: #ffffff;
+  --gridcolor2: rgba(255, 255, 255, 0.867);
+  --offset: 67.5px;
+  /* review this default value */
+}
+
+.leaf {
+  border-radius: 10px;
+  display: inline-block;
+  background-color: var(--leafcolour);
+  width: var(--leafWidth);
+  text-align: center;
+  position: relative;
+}
+
+/* .leaf.has-ancestor::after {
+  content: '';
+  position: absolute;
+  top: -20px;
+  bottom: 0;
+  left: 50%;
+  border-left: 2px solid white;
+  height: 20px;
+} */
+
+.male {
+  border: 2px solid var(--maleBlue);
+}
+
+.female {
+  border: 2px solid var(--femaleGreen);
+}
+
+.fullName {
+  padding-top: 10px;
+  font: var(--nameFont);
+}
+
+.birthDeath {
+  font: var(--birthDeathFont);
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.spacer {
+  display: inline-block;
+  width: 30px;
+  height: 50px;
+  position: relative;
+  top: 25px;
+}
+
+.spacerBlank {
+  display: inline-block;
+  width: 30px;
+  height: 50px;
+  position: relative;
+  top: 25px;
+}
+
+
+.spacer::before,
+.spacer::after {
+  content: '';
+  position: absolute;
+  background-color: black;
+}
+
+.spacer::before {
+  top: 0%;
+  left: 0;
+  right: 0;
+  height: 2px;
+}
+
+/* descendant */
+.spacer::after {
+  left: 50%;
+  content: '';
+  width: 2px;
+  height: 44.5px;
+}
+
+
+/* ######## grid stuff ######### */
+
+.grid-master {
+  display: grid;
+  grid-template-areas:
+    "grid-gen1" "grid-gen2" "grid-gen3" "grid-gen31" "grid-gen4";
+  grid-template-rows: auto;
+  overflow: auto;
+  width: max-content;
+  /* Ensure grid-master itself can scroll */
+  /* background-color: navy; */
+  padding: 20px;
+  margin-top: 4px;
+  margin: 20px;
+  border: 1px solid navy;
+  border-radius: 5px;
+}
+
+
+
+.grid-gen1 {
+  grid-template-columns: repeat(4, 1fr);
+  grid-area: grid-gen1;
+
+}
+
+.grid-gen2 {
+  grid-template-columns: repeat(2, 1fr);
+  grid-area: grid-gen2;
+}
+
+.grid-gen3 {
+  grid-template-columns: repeat(1, 1fr);
+  grid-area: grid-gen3;
+}
+
+.grid-gen31 {
+  grid-template-columns: repeat(1, 1fr);
+  grid-area: grid-gen31;
+}
+
+
+.grid-gen4 {
+  grid-template-columns: repeat(1, 1fr);
+  grid-area: grid-gen4;
+}
+
+
+.grid-gen1,
+.grid-gen2,
+.grid-gen3,
+.grid-gen31 {
+  display: grid;
+  grid-gap: 0px;
+  background-color: var(--gridcolor1);
+  padding: 15px;
+  text-align: center;
+  /* border: 5px solid black; */
+  max-width: 100%;
+  /* box-sizing: border-box; */
+}
+
+.item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding-left: 15px;
+  padding-right: 15px;
+
+
+}
+
+.item1 {
+  grid-column: span 1;
+  background-color: #cc0000;
+}
+
+.item2 {
+  grid-column: span 1;
+  background-color: #ff0000;
+
+}
+
+.item3 {
+  grid-column: span 1;
+  background-color: #ff3333;
+}
+
+.item4 {
+  grid-column: span 1;
+  background-color: #ff6666;
+}
+
+.item5 {
+  grid-column: span 1;
+  background-color: #fc6a21;
+}
+
+.item6 {
+  grid-column: span 1;
+  background-color: #ff7e01;
+}
+
+.item7 {
+  grid-column: span 1;
+  background-color: green;
+}
+
+.item8 {
+  grid-column: span 1;
+  background-color: lightgreen;
+}
+
+
+
+/* ######## offspring - see original style.css #########*/
+
+
+/* ###############################################
+   Use these for vertical tree on last generation 
+   ###############################################
+
+  ------------------ 
+  VERTICAL STRUCTURE
+  ------------------
+  CSS: 
+  1. Delete child items (9-17) [not strictly necessary] 
+  2. Create child items (already done below)
+  3. Create spans for children. (this could be done by adding to parent items) (done below)
+  4. Reduce cols in grid-gen4 (added inline to JS)
+  5. Add vertical spacer in CSS (vSpace below)
+  6. Create CSS vertical line to top of each last gen child leaf (isDescendant below)
+  HTML:
+  replace with child structure. 
+  Add isDescendant to each leaf 
+  vSpacer between each of the children except first.
+  Add vertical spacer for each child (except first) in last gen
+  
+   */
+
+/* 2. Create child items */
+
+.item8-children {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  /* Ensure items are aligned to the top */
+}
+
+/* 3. Create spans */
+/* .item4-children {
+  grid-column: span 2;
+  background-color: #ad5892;
+} */
+
+.item8-children {
+  grid-column: span 3;
+  background-color: #e9fce9;
+}
+
+/* 5. Vertical spacer */
+.vSpace {
+  display: block;
+  width: 100%;
+  height: 20px;
+  /* Height of the vertical space */
+}
+
+/* 6. last gen descendant lines (vertical) */
+.isDescendant::before,
+.isDescendant::after {
+  content: '';
+  position: absolute;
+  top: -22px;
+}
+
+.isDescendant::before {
+  height: 21px;
+  border-left: var(--treePath);
+}
+
+/* ############################
+new offspring stuff 8421 */
+.yyy-offspirng,
+.xxx-offspring {
+  position: relative;
+  /* Ensure the pseudo-elements are positioned relative to the .left-offspring element */
+}
+
+.yyy-offspring::before,
+.yyy-offspring::after,
+.xxx-offspring::before,
+.xxx-offspring::after {
+  content: '';
+  position: absolute;
+  top: -20px;
+  /* Adjust as needed to position the lines vertically */
+  border-top: var(--treePath);
+  /* Ensure this is defined in your :root */
+}
+
+.xxx-offspring::before {
+  left: 25%;
+  width: calc(25% - 20px + 5px - var(--leafWidth) / 2);
+}
+
+.xxx-offspring::after {
+  right: calc(25% - 2px);
+  width: calc(25% - 20px + 5px - var(--leafWidth) / 2);
+}
+
+.yyy-offspring::before {
+  left: calc(50% - var(--leafWidth) - 34px);
+  width: calc(var(--leafWidth) * 2 + 70px);
+}
+
+/* .yyy-offspring::after {
+  right: calc(25% - 2px);
+  width: calc(25% - 20px + 5px - var(--leafWidth) / 2);
+} */
+
+/* pushes last gen vertical descendants left */
+.shifty {
+  right: calc(var(--leafWidth) / 2 + 17px);
+}
+
+
+
+
+
+
+
+
+/* Notes Section Styling */
+.notes {
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  width: 1430px;
+}
+
+.notes h2 {
+  margin-top: 0;
+  font-size: 1.5em;
+}
+
+.notes ol {
+  padding-left: 20px;
+}
+
+.notes li {
+  margin-bottom: 10px;
+  font-size: 1em;
+}

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="trim.css" />
+    <title>Trim Tree</title>
+  </head>
+  <body>
+    <header>
+      <h1>Trim Tree</h1>
+    </header>
+    <button id="remove-color-button">Remove Color</button>
+    <div class="grid-master">
+      <div class="grid-gen1">
+        <!-- item 1 -->
+        <div class="item item1">
+          <div class="leaf male">
+            <div class="fullName">Note 1</div>
+            <div class="birthDeath">(???? - ????)</div>
+          </div>
+          <span class="spacer"></span>
+          <div class="leaf female">
+            <div class="fullName">Note 2</div>
+            <div class="birthDeath">(???? - ????)</div>
+          </div>
+        </div>
+        <!-- item 2  -->
+        <div class="item item2">
+          <div class="leaf male">
+            <div class="fullName">Note 3</div>
+            <div class="birthDeath">(???? - ????)</div>
+          </div>
+          <span class="spacer"></span>
+          <div class="leaf female">
+            <div class="fullName">Note 4</div>
+            <div class="birthDeath">(???? - ????)</div>
+          </div>
+        </div>
+
+        <!-- item 3  -->
+        <div class="item item3">
+          <div class="leaf male">
+            <div class="fullName">John Marchant<sup>5</sup></div>
+            <div class="birthDeath">(1882/3 - 1934)</div>
+          </div>
+          <span class="spacer"></span>
+          <div class="leaf female">
+            <div class="fullName">Alice Marchant<sup>6</sup></div>
+            <div class="birthDeath">(???? - ????)</div>
+          </div>
+        </div>
+
+        <!-- item 4  -->
+        <div class="item item4">
+          <div class="leaf male">
+            <div class="fullName">Note 7</div>
+            <div class="birthDeath">(???? - ????)</div>
+          </div>
+          <span class="spacer"></span>
+          <div class="leaf female">
+            <div class="fullName">Note 8</div>
+            <div class="birthDeath">(???? - ????)</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ### gen2 ### -->
+      <div class="grid-gen2">
+        <!-- item 5  -->
+        <div class="item item5 xxx-offspring">
+          <div class="leaf male isDescendant">
+            <div class="fullName">Henry Trimmings<sup>9</sup></div>
+            <div class="birthDeath">(???? - ????)</div>
+          </div>
+          <span class="spacer"></span>
+          <div class="leaf female isDescendant">
+            <div class="fullName">Elizabeth Trimmings<sup>10</sup></div>
+            <div class="birthDeath">(???? - ????)</div>
+          </div>
+        </div>
+
+        <!-- item 6  -->
+        <div class="item item6 xxx-offspring">
+          <div class="leaf male isDescendant">
+            <div class="fullName">George Marchant<sup>11</sup></div>
+            <div class="birthDeath">(1909 - 1994)</div>
+          </div>
+          <span class="spacer"></span>
+          <div class="leaf female isDescendant">
+            <div class="fullName">Winifred Marchant<sup>12</sup></div>
+            <div class="birthDeath">(1908 - 1938)</div>
+          </div>
+        </div>
+      </div>
+      <!-- ### gen 3 ### -->
+      <div class="grid-gen3">
+        <!-- item 7  -->
+        <div class="item item7 xxx-offspring">
+          <div class="leaf male isDescendant">
+            <div class="fullName">Alan Trimmings</div>
+            <div class="birthDeath">(1935 - )</div>
+          </div>
+          <span class="spacer"></span>
+          <div class="leaf female isDescendant">
+            <div class="fullName">Pat Trimmings</div>
+            <div class="birthDeath">(1937 - )</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ### gen 3.1 ### -->
+      <div class="grid-gen31">
+        <!-- item 8  -->
+        <div class="item item8 yyy-offspring">
+          <div class="leaf male isDescendant">
+            <div class="fullName">Michael Trimmings</div>
+            <div class="birthDeath">(1964 - )</div>
+          </div>
+          <span class="spacer"></span>
+          <div class="leaf female">
+            <div class="fullName">Donna Trimmings</div>
+            <div class="birthDeath">(1963 - )</div>
+          </div>
+          <!-- single -->
+          <span class="spacerBlank"></span>
+          <div class="leaf female isDescendant">
+            <div class="fullName">Sharon Trimmings</div>
+            <div class="birthDeath">(1966 - )</div>
+          </div>
+        </div>
+      </div>
+      <!-- item9, item10, item11 -->
+      <div class="item item8-children">
+        <div class="leaf male isDescendant shifty">
+          <div class="fullName">Ross Trimmings</div>
+          <div class="birthDeath">(???? - )</div>
+        </div>
+        <span class="vSpace"></span>
+        <div class="leaf male isDescendant shifty">
+          <div class="fullName">Darcy Trimmings</div>
+          <div class="birthDeath">(???? - )</div>
+        </div>
+        <span class="vSpace"></span>
+        <div class="leaf male isDescendant shifty">
+          <div class="fullName">Fraser Trimmings</div>
+          <div class="birthDeath">(???? - )</div>
+        </div>
+      </div>
+      <!-- item9, item10, item11 under item4 -->
+    </div>
+    <!-- Notes Section -->
+    <section class="notes">
+      <h2>Notes</h2>
+      <ol>
+        <li>No info</li>
+        <li>No info</li>
+        <li>Surname: Legall</li>
+        <li><span style="color: red">Maiden name: Bonning?</span></li>
+        <li>John Valentine Marchant. Profession: Stonemason.</li>
+        <li>Alice Ann Marchant. Maiden name: Reynolds.</li>
+        <li>No info</li>
+        <li>No info</li>
+        <li>
+          Henry Roger Trimmings. Profession: Brewer's labourer. Lived in
+          Lambeth. <span style="color: red">What year was he born? Die?</span>
+        </li>
+        <li>
+          Maiden name: Legall. Married Jul - Sep 1932.
+          <span style="color: red">Born 1920, died 1987?</span>
+        </li>
+        <li>
+          George Thomas Marchant. Born 21/2/1909. Profession: Boot repairer.
+          Lived in Battersea. Remarried.
+        </li>
+        <li>
+          Known as Winnie. Maiden name: Burrell.<span style="color: red">
+            Middle name Grace and maiden name Dearlove?</span
+          >
+        </li>
+      </ol>
+    </section>
+    <script type="module">
+      document.addEventListener("DOMContentLoaded", function () {
+        // Add button to remove colour
+        const button = document.getElementById("remove-color-button");
+        button.addEventListener("click", removeColor);
+      });
+
+      function removeColor() {
+        console.log("colour removed");
+        for (let i = 1; i <= 9; i++) {
+          const item = document.querySelector(`.item${i}`);
+          if (item) {
+            item.style.backgroundColor = "transparent"; // Change the background color to transparent
+          }
+        }
+        for (let i = 1; i <= 9; i++) {
+          const item = document.querySelector(`.item${i}-children`);
+          if (item) {
+            item.style.backgroundColor = "transparent"; // Change the background color to transparent
+          }
+        }
+      }
+    </script>
+  </body>
+</html>
