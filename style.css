@@ -123,7 +123,8 @@
   left: 50%;
   content: '';
   width: 2px;
-  height: 44.5px;
+/*   height: 44.5px; */
+  height: calc(100% - 2px); 
 }
 
 
